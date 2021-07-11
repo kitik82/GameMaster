@@ -1,16 +1,5 @@
 alert("Hello! Welcome to 'GameMaster' version 0.1 ");
 chooseGame();
-//GUESSING
-let ugadNum = prompt("Enter number");
-let zagadNum = randomNum(0, 100);
-let numTry = 0;
-//COUNTING
-// let countCorrect = 0;
-// let signPrimera = "";
-// let otvetPrimera = 0;
-//CLICKING
-// let clickNo;
-// let noCount = 0;
 function chooseGame() {
   let games = prompt(`Choose the game:
         1 - guessing
@@ -31,7 +20,6 @@ function chooseGame() {
     chooseGame();
   }
 }
-
 function randomNum(a = 0, b) {
   return Math.floor(a + Math.random() * (b + 1 - a));
 }
@@ -43,23 +31,29 @@ Your task is to guess it in the minimum number of attempts.
 After eache your enter I will say you bigger or fewer your number from guess number.
 let's start?
 `);
-  provNum();
+  guessingGame();
 }
-function provNum() {
-  if (ugadNum > zagadNum) {
-    alert("Fewer");
-    numTry++;
-    ugadNum = prompt("Enter number");
-    provNum();
-  } else if (ugadNum < zagadNum) {
-    alert("Bigger");
-    numTry++;
-    ugadNum = prompt("Enter number");
-    provNum();
-  } else {
-    alert("Congratulations");
-    alert(`You made it for ${numTry} attemption`);
-    chooseGame();
+function guessingGame() {
+  let ugadNum = prompt("Enter number");
+  let zagadNum = randomNum(0, 100);
+  let numTry = 0;
+  provNum();
+  function provNum() {
+    if (ugadNum > zagadNum) {
+      alert("Fewer");
+      numTry++;
+      ugadNum = prompt("Enter number");
+      provNum();
+    } else if (ugadNum < zagadNum) {
+      alert("Bigger");
+      numTry++;
+      ugadNum = prompt("Enter number");
+      provNum();
+    } else {
+      alert("Congratulations");
+      alert(`You made it for ${numTry} attemption`);
+      chooseGame();
+    }
   }
 }
 function gameLaunchCounting() {
