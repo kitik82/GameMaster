@@ -9,6 +9,12 @@ function chooseGame() {
         `);
   if (games === "1") {
     gameLaunchGuessing();
+  } else if (games === "guessing") {
+    gameLaunchGuessing();
+  } else if (games === "counting") {
+    gameLaunchCounting();
+  } else if (games === "clicking") {
+    gameLaunchClicking();
   } else if (games === "2") {
     gameLaunchCounting();
   } else if (games === "3") {
